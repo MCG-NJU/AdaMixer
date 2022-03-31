@@ -5,7 +5,7 @@
 > [Ziteng Gao](https://sebgao.github.io), [Limin Wang](http://wanglimin.github.io/), Bing Han, Sheng Guo<br>Nanjing University, MYbank Ant Group
 
 ## 📰 News
-[2022.3.21] Code will be released in a few days (not too long). Pre-trained models will take some time to grant the permission of Ant Group to be available online. Please stay tuned or *watch this repo* for quick information.
+[2022.3.31] Code will be released in a few days (not too long). Pre-trained models will take some time to grant the permission of Ant Group to be available online. Please stay tuned or *watch this repo* for quick information.
 
 ## 🧪 Main Results
 |  detector | backbone  | APval | APtest |
