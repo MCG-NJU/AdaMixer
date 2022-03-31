@@ -1,6 +1,6 @@
 # AdaMixer: A Fast-Converging Query-Based Object Detector
 
-> [**AdaMixer: A Fast-Converging Query-Based Object Detector**]()<br>
+> [**AdaMixer: A Fast-Converging Query-Based Object Detector**](https://arxiv.org/abs/2203.16507)<br>
 > _accept to CVPR 2022 as an oral presentation_ <br>
 > [Ziteng Gao](https://sebgao.github.io), [Limin Wang](http://wanglimin.github.io/), Bing Han, Sheng Guo<br>Nanjing University, MYbank Ant Group
 
