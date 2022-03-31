@@ -1,4 +1,4 @@
-# AdaMixer: A Fast-Converging Query-Based Object Detector
+# AdaMixer: A Fast-Converging Query-Based Object Detector [arxiv](https://arxiv.org/abs/2203.16507)
 
 > [**AdaMixer: A Fast-Converging Query-Based Object Detector**](https://arxiv.org/abs/2203.16507)<br>
 > _accept to CVPR 2022 as an oral presentation_ <br>
