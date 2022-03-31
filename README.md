@@ -4,10 +4,10 @@
 > _accept to CVPR 2022 as an oral presentation_ <br>
 > [Ziteng Gao](https://sebgao.github.io), [Limin Wang](http://wanglimin.github.io/), Bing Han, Sheng Guo<br>Nanjing University, MYbank Ant Group
 
-## News
-Code will be released in a few days (not too long). Pre-trained models will take some time to grant the permission of Ant Group to be available online. Please stay tuned or *watch this repo* for quick information.
+## 📰 News
+[2022.3.21] Code will be released in a few days (not too long). Pre-trained models will take some time to grant the permission of Ant Group to be available online. Please stay tuned or *watch this repo* for quick information.
 
-## Main Results
+## 🧪 Main Results
 |  detector | backbone  | APval | APtest |
 | :-------: | :------:  | :---: | :----: |
 | AdaMixer   |  R50     |  47.0  | 47.2   | 
@@ -16,7 +16,7 @@ Code will be released in a few days (not too long). Pre-trained models will take
 | AdaMixer   |  Swin-S  |  51.3  | 51.3   | 
 
 
-## Citation
+## ✏️ Citation
 If you find AdaMixer useful in your research, please citing us using the following entry:
 ```
 @inproceedings{adamixer22cvpr,
