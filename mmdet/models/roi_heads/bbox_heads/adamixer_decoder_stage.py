@@ -128,12 +128,12 @@ class AdaptiveSamplingMixing(nn.Module):
 
         self.adaptive_mixing.init_weights()
 
-    def forward(self, x, query_feat, query_roi, featmap_strides):
+    def forward(self, x, query_feat, query_xyzr, featmap_strides):
         offset = self.sampling_offset_generator(query_feat)
 
         sample_points_xyz = make_sample_points(
             offset, self.n_groups * self.in_points,
-            query_roi,
+            query_xyzr,
         )
 
         if DEBUG:
@@ -205,10 +205,6 @@ class AdaMixerDecoderStage(BBoxHead):
         self.fp16_enabled = False
         self.attention = MultiheadAttention(content_dim, num_heads, dropout)
         self.attention_norm = build_norm_layer(dict(type='LN'), content_dim)[1]
-
-        self.instance_interactive_conv_dropout = nn.Dropout(dropout)
-        self.instance_interactive_conv_norm = build_norm_layer(
-            dict(type='LN'), content_dim)[1]
 
         self.ffn = FFN(
             content_dim,
