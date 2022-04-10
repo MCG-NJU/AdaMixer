@@ -54,8 +54,6 @@ def translate_to_linear_weight(ref: torch.Tensor, num_total,
         grid = torch.as_tensor(
             featmap_strides, device=ref.device, dtype=ref.dtype)
         grid = grid.log2().view(*[len(ref.shape)*[1, ]+[-1, ]])
-        # print(grid)
-        # print(ref.view(-1)[0])
 
     ref = ref.unsqueeze(-1).clone()
     l2 = (ref-grid).pow(2.0).div(tau).abs().neg()
