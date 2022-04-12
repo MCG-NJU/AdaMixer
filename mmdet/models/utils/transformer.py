@@ -1,8 +1,12 @@
+import torch.nn.functional as F
 import math
 
 import torch
 import torch.nn as nn
 from typing import Sequence
+from itertools import repeat
+import collections.abc
+
 from mmcv.cnn import build_activation_layer, build_norm_layer, xavier_init, build_conv_layer
 from mmcv.cnn.bricks.registry import (TRANSFORMER_LAYER,
                                       TRANSFORMER_LAYER_SEQUENCE)
@@ -15,8 +19,23 @@ from torch.nn.init import normal_
 
 from mmdet.models.utils.builder import TRANSFORMER
 
-from mmcv.utils import to_2tuple
-import torch.nn.functional as F
+
+def _ntuple(n):
+
+    def parse(x):
+        if isinstance(x, collections.abc.Iterable):
+            return x
+        return tuple(repeat(x, n))
+
+    return parse
+
+
+to_1tuple = _ntuple(1)
+to_2tuple = _ntuple(2)
+to_3tuple = _ntuple(3)
+to_4tuple = _ntuple(4)
+to_ntuple = _ntuple
+
 
 def nlc_to_nchw(x, hw_shape):
     """Convert [N, L, C] shape tensor to [N, C, H, W] shape tensor.
@@ -359,6 +378,7 @@ class PatchMerging(BaseModule):
         x = self.norm(x) if self.norm else x
         x = self.reduction(x)
         return x, output_size
+
 
 def inverse_sigmoid(x, eps=1e-5):
     """Inverse function of sigmoid.
@@ -1231,5 +1251,3 @@ class DynamicConvV2(BaseModule):
         features = self.activation(features)
 
         return features
-
-

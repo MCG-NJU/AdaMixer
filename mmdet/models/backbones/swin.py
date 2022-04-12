@@ -1,6 +1,8 @@
 import warnings
 from collections import OrderedDict
 from copy import deepcopy
+from itertools import repeat
+import collections.abc
 
 import torch
 import torch.nn as nn
@@ -10,12 +12,28 @@ from mmcv.cnn import build_norm_layer, constant_init, trunc_normal_init
 from mmcv.cnn.bricks.transformer import FFN, build_dropout
 from mmcv.cnn.utils.weight_init import trunc_normal_
 from mmcv.runner import BaseModule, ModuleList, _load_checkpoint
-from mmcv.utils import to_2tuple
 
 from ...utils import get_root_logger
 from ..builder import BACKBONES
-# from ..utils.ckpt_convert import swin_converter
 from ..utils.transformer import PatchEmbed, PatchMerging
+
+
+def _ntuple(n):
+
+    def parse(x):
+        if isinstance(x, collections.abc.Iterable):
+            return x
+        return tuple(repeat(x, n))
+
+    return parse
+
+
+to_1tuple = _ntuple(1)
+to_2tuple = _ntuple(2)
+to_3tuple = _ntuple(3)
+to_4tuple = _ntuple(4)
+to_ntuple = _ntuple
+
 
 def swin_converter(ckpt):
 
@@ -70,7 +88,8 @@ def swin_converter(ckpt):
         new_ckpt['backbone.' + new_k] = new_v
 
     return new_ckpt
-    
+
+
 class WindowMSA(BaseModule):
     """Window based multi-head self-attention (W-MSA) module with relative
     position bias.

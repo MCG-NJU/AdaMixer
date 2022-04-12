@@ -241,7 +241,7 @@ class AdaMixerDecoderStage(BBoxHead):
         self.fc_reg = nn.Linear(content_dim, 4)
 
         self.in_points = in_points
-        self.n_heads = n_groups
+        self.n_groups = n_groups
         self.out_points = out_points
 
         self.sampling_n_mixing = AdaptiveSamplingMixing(
@@ -249,7 +249,7 @@ class AdaMixerDecoderStage(BBoxHead):
             feat_channels=feat_channels,
             in_points=self.in_points,
             out_points=self.out_points,
-            n_groups=self.n_heads
+            n_groups=self.n_groups
         )
 
         self.iof_tau = nn.Parameter(torch.ones(self.attention.num_heads, ))
@@ -257,13 +257,11 @@ class AdaMixerDecoderStage(BBoxHead):
     @torch.no_grad()
     def init_weights(self):
         super(AdaMixerDecoderStage, self).init_weights()
-        for n, p in self.named_parameters():
-            if p.dim() > 1:
-                nn.init.xavier_uniform_(p)
-            else:
-                # adopt the default initialization for
-                # the weight and bias of the layer norm
-                pass
+        for n, m in self.named_modules():
+            if isinstance(m, nn.Linear):
+                m.reset_parameters()
+                nn.init.xavier_uniform_(m.weight)
+
         if self.loss_cls.use_sigmoid:
             bias_init = bias_init_with_prob(0.01)
             nn.init.constant_(self.fc_cls.bias, bias_init)
