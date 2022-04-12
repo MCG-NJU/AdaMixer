@@ -9,7 +9,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.utils.checkpoint as cp
 from mmcv.cnn import build_norm_layer, constant_init
-from mmcv.cnn.bricks.transformer import FFN, build_dropout
+from mmcv.cnn.bricks.transformer import FFN
 from mmcv.runner import BaseModule, ModuleList, _load_checkpoint
 
 from ...utils import get_root_logger
@@ -245,7 +245,8 @@ class ShiftWindowMSA(BaseModule):
             proj_drop_rate=proj_drop_rate,
             init_cfg=None)
 
-        self.drop = build_dropout(dropout_layer)
+        # self.drop = build_dropout(dropout_layer)
+        self.drop = nn.Identity()
 
     def forward(self, query, hw_shape):
         B, L, C = query.shape
