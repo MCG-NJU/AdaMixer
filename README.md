@@ -26,15 +26,18 @@ Our AdaMixer does not hunger for extra attention encoders or explicit feature py
 ## ➡️ Guide to Our Code
 Our code structure follows the MMDetection framework. To get started, please refer to mmdetection doc [get_started.md](docs/get_started.md) for installation.
 
-Our AdaMixer config file lies in `configs/adamixer` folder. You can start training our detectors with make targets in `Makefile`.
+Our AdaMixer config file lies in [configs/adamixer](configs/adamixer) folder. You can start training our detectors with make targets in [Makefile](Makefile).
 
-The code of a AdaMixer decoder stage is in `mmdet/models/roi_heads/bbox_heads/adamixer_decoder_stage.py`.
-The code of the 3D feature space sampling is in `mmdet/models/roi_heads/bbox_heads/sampling_3d_operator.py`.
-The code of the adaptive mixing process is in `mmdet/models/roi_heads/bbox_heads/adaptive_mixing_operator.py`.
+The code of a AdaMixer decoder stage is in
+[mmdet/models/roi_heads/bbox_heads/adamixer_decoder_stage.py](mmdet/models/roi_heads/bbox_heads/adamixer_decoder_stage.py).
+The code of the 3D feature space sampling is in
+[mmdet/models/roi_heads/bbox_heads/sampling_3d_operator.py](mmdet/models/roi_heads/bbox_heads/sampling_3d_operator.py).
+The code of the adaptive mixing process is in
+[mmdet/models/roi_heads/bbox_heads/adaptive_mixing_operator.py](mmdet/models/roi_heads/bbox_heads/adaptive_mixing_operator.py).
 
 
 __NOTE:__
-1. Please make sure `init_weight` methods in `AdaptiveSamplingMixing` and `AdaptiveMixing`  are called for correct initializations *AND* the initialized weights are not overrided by other methods (some MMCV versions may incur repeated initializations).
+1. Please use `mmcv_full==1.3.3` for correct reproduction ([#4](/../../issues/4)).~~Please make sure `init_weight` methods in `AdaptiveSamplingMixing` and `AdaptiveMixing`  are called for correct initializations *AND* the initialized weights are not overrided by other methods (some MMCV versions may incur repeated initializations).~~
 2. We notice ~0.3 AP (42.7 AP reported in the paper) noise for AdaMixer w/ R50 with 1x training settings.
 
 ## 🧪 Main Results
@@ -44,6 +47,7 @@ __NOTE:__
 | AdaMixer   |  R101    |  48.0  | 48.1   | 
 | AdaMixer   |  X101-DCN|  49.5  | 49.3   | 
 | AdaMixer   |  Swin-S  |  51.3  | 51.3   | 
+
 
 ## ✏️ Citation
 If you find AdaMixer useful in your research, please cite us using the following entry:

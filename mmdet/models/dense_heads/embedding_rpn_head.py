@@ -40,7 +40,6 @@ class EmbeddingRPNHead(BaseModule):
         self.init_proposal_features = nn.Embedding(
             self.num_proposals, self.proposal_feature_channel)
 
-        self.init_proposal_feature_generator = nn.TransformerEncoder(nn.TransformerEncoderLayer(self.proposal_feature_channel, 8, dropout=0.0), 3)
     def init_weights(self):
         """Initialize the init_proposal_bboxes as normalized.
 
@@ -91,17 +90,6 @@ class EmbeddingRPNHead(BaseModule):
         init_proposal_features = init_proposal_features[None].expand(
             num_imgs, *init_proposal_features.size())
 
-        ########
-        # random = torch.randn(
-        #     init_proposal_features.size(0),    
-        #     # init_proposal_features.size(1),
-        #     100,
-        #     256,
-        #     device=init_proposal_features.device).clamp(min=-3.0, max=3.0)
-        # init_proposal_features = self.init_proposal_feature_generator(random)
-        # # init_proposal_features[:, 10:, :].fill_(0.0)
-        # proposals = proposals[:, 0:1, :].repeat(1, init_proposal_features.size(1), 1)
-        # print(proposals)
         return proposals.detach(), init_proposal_features, imgs_whwh
 
     def forward_dummy(self, img, img_metas):

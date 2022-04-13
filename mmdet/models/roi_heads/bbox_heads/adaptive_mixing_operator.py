@@ -12,6 +12,8 @@ def dprint(*args, **kwargs):
 _dump_i = 0
 
 
+# this requires a customized MMCV to include
+# the flops updated in `__user_flops_handle__`
 class SRShadowForFlops(nn.Module):
     def __init__(self, in_dim, in_points, n_groups, query_dim=None,
                  out_dim=None, out_points=None, **kwargs):
@@ -114,6 +116,7 @@ class AdaptiveMixing(nn.Module):
         M, S = params.split(
             [self.m_parameters, self.s_parameters], 2)
 
+        '''you can choose one implementation below'''
         if False:
             out = out.reshape(
                 B*N*G, P, C
@@ -124,6 +127,7 @@ class AdaptiveMixing(nn.Module):
             S = S.reshape(
                 B*N*G, self.out_points, self.in_points)
 
+            '''adaptive channel mixing'''
             out = torch.bmm(out, M)
             out = F.layer_norm(out, [out.size(-2), out.size(-1)])
             out = self.act(out)
@@ -138,10 +142,8 @@ class AdaptiveMixing(nn.Module):
             S = S.reshape(
                 B*N, G, self.out_points, self.in_points)
 
-            '''adaptive channel mixing
-            the process also can be done with torch.bmm
-            but for clarity, we use torch.matmul
-            '''
+            '''adaptive channel mixing'''
+
             out = torch.matmul(out, M)
             out = F.layer_norm(out, [out.size(-2), out.size(-1)])
             out = self.act(out)
