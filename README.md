@@ -30,10 +30,8 @@ Our AdaMixer config file lies in [configs/adamixer](configs/adamixer) folder. Yo
 
 The code of a AdaMixer decoder stage is in
 [mmdet/models/roi_heads/bbox_heads/adamixer_decoder_stage.py](mmdet/models/roi_heads/bbox_heads/adamixer_decoder_stage.py).
-The code of the 3D feature space sampling is in
-[mmdet/models/roi_heads/bbox_heads/sampling_3d_operator.py](mmdet/models/roi_heads/bbox_heads/sampling_3d_operator.py).
-The code of the adaptive mixing process is in
-[mmdet/models/roi_heads/bbox_heads/adaptive_mixing_operator.py](mmdet/models/roi_heads/bbox_heads/adaptive_mixing_operator.py).
+The code of the 3D feature space sampling is in [mmdet/models/roi_heads/bbox_heads/sampling_3d_operator.py](mmdet/models/roi_heads/bbox_heads/sampling_3d_operator.py).
+The code of the adaptive mixing process is in [mmdet/models/roi_heads/bbox_heads/adaptive_mixing_operator.py](mmdet/models/roi_heads/bbox_heads/adaptive_mixing_operator.py).
 
 
 __NOTE:__
@@ -64,9 +62,8 @@ If you find AdaMixer useful in your research, please cite us using the following
 ```
 
 
-
-
-
+## 👍 Acknowledgement
+Thanks to [Zhan Tong](https://github.com/yztongzhan) and Zihua Xiong for their help.
 
 
 
@@ -135,7 +132,7 @@ Apart from MMDetection, we also released a library [mmcv](https://github.com/ope
 
 ## License
 
-The mmdetection project is released under the [Apache 2.0 license](LICENSE).
+The mmdetection project is released under the [Apache 2.0 license](https://github.com/open-mmlab/mmdetection/blob/master/LICENSE).
 
 ## Changelog
 
