@@ -76,11 +76,11 @@ class AdaMixerDecoder(CascadeRoIHead):
             detach_bboxes_list=[item.detach() for item in bboxes_list],
             bboxes_list=bboxes_list,
         )
-        AdaMixerDecoder._DEBUG += 1
         if DEBUG:
             with torch.no_grad():
                 torch.save(
                     bbox_results, 'demo/bbox_results_{}.pth'.format(AdaMixerDecoder._DEBUG))
+                AdaMixerDecoder._DEBUG += 1
         return bbox_results
 
     def forward_train(self,

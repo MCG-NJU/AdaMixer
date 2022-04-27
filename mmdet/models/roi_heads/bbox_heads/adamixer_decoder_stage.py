@@ -67,7 +67,7 @@ def make_sample_points(offset, num_group, xyzr):
 
 
 class AdaptiveSamplingMixing(nn.Module):
-    IND = 0
+    _DEBUG = 0
 
     def __init__(self,
                  in_points=32,
@@ -138,7 +138,7 @@ class AdaptiveSamplingMixing(nn.Module):
 
         if DEBUG:
             torch.save(
-                sample_points_xyz, 'demo/sample_xy_{}.pth'.format(AdaptiveSamplingMixing.IND))
+                sample_points_xyz, 'demo/sample_xy_{}.pth'.format(AdaptiveSamplingMixing._DEBUG))
 
         sampled_feature, _ = sampling_3d(sample_points_xyz, x,
                                          featmap_strides=featmap_strides,
@@ -147,12 +147,11 @@ class AdaptiveSamplingMixing(nn.Module):
 
         if DEBUG:
             torch.save(
-                sampled_feature, 'demo/sample_feature_{}.pth'.format(AdaptiveSamplingMixing.IND))
+                sampled_feature, 'demo/sample_feature_{}.pth'.format(AdaptiveSamplingMixing._DEBUG))
+            AdaptiveSamplingMixing._DEBUG += 1
 
         query_feat = self.adaptive_mixing(sampled_feature, query_feat)
         query_feat = self.norm(query_feat)
-
-        AdaptiveSamplingMixing.IND += 1
 
         return query_feat
 
