@@ -4,6 +4,9 @@
 > _accept to CVPR 2022 as an oral presentation_ <br>
 > [Ziteng Gao](https://sebgao.github.io), [Limin Wang](http://wanglimin.github.io/), Bing Han, Sheng Guo<br>Nanjing University, MYbank Ant Group
 
+[[slides]](adamixer_cvpr_2022_keynote.pdf)
+[[arxiv]](https://arxiv.org/abs/2203.16507)
+
 ## 📰 News
 [2022.4.4] The code is available now.
 
