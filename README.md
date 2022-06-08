@@ -38,7 +38,7 @@ The code of the adaptive mixing process is in [mmdet/models/roi_heads/bbox_heads
 
 
 __NOTE:__
-1. Please use `mmcv_full==1.3.3` for correct reproduction ([#4](/../../issues/4)).~~Please make sure `init_weight` methods in `AdaptiveSamplingMixing` and `AdaptiveMixing`  are called for correct initializations *AND* the initialized weights are not overrided by other methods (some MMCV versions may incur repeated initializations).~~
+1. Please use `mmcv_full==1.3.3` and `pytorch>=1.5.0` for correct reproduction ([#4](/../../issues/4), [#12](/../../issues/12)).~~Please make sure `init_weight` methods in `AdaptiveSamplingMixing` and `AdaptiveMixing`  are called for correct initializations *AND* the initialized weights are not overrided by other methods (some MMCV versions may incur repeated initializations).~~
 2. We notice ~0.3 AP (42.7 AP reported in the paper) noise for AdaMixer w/ R50 with 1x training settings.
 
 ## 🧪 Main Results
