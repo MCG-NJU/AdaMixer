@@ -42,12 +42,16 @@ __NOTE:__
 2. We notice ~0.3 AP (42.7 AP reported in the paper) noise for AdaMixer w/ R50 with 1x training settings.
 
 ## 🧪 Main Results
-|  detector | backbone  | APval | APtest |
-| :-------: | :------:  | :---: | :----: |
-| AdaMixer   |  R50     |  47.0  | 47.2   | 
-| AdaMixer   |  R101    |  48.0  | 48.1   | 
-| AdaMixer   |  X101-DCN|  49.5  | 49.3   | 
-| AdaMixer   |  Swin-S  |  51.3  | 51.3   | 
+Checkpoints and logs are available at [google drive](https://drive.google.com/drive/folders/1VPP-wJV6BzI_8MVy33RQZkV8ONgg5uLQ?usp=sharing).
+
+| config |  detector | backbone  | APval | APtest  | APval (reprod.) | ckpt (reprod.) | log (reprod.) |
+| :---: | :-------: | :------:  | :---: | :----:  | :---: | :---: | :---: | 
+| [config](configs/adamixer/adamixer_r50_1x_coco.py) | AdaMixer (1x schedule, 100 queries)   |  R50     |  42.7  |   |  42.6 |[ckpt](https://drive.google.com/file/d/1v3rDczN2VXSgRYmSX0-XRy8racgpfed2/view?usp=sharing) | [log](https://drive.google.com/file/d/1nSjufpRiRYUn_gfJiG2RAv_MTWC2NiNr/view?usp=sharing) |
+| [config](configs/adamixer/adamixer_r50_300_query_crop_mstrain_480-800_3x_coco.py) | AdaMixer (3x schedule, 300 queries)  |  R50     |  47.0  | 47.2   |  46.8 |[ckpt](https://drive.google.com/file/d/1Qj3sbcFF1zV8oeSfAWzZnYqv8mXWN8wJ/view?usp=sharing) | [log](https://drive.google.com/file/d/1EUAYtK-owJj1vlFG-NGaezw2uNWTjvzv/view?usp=sharing) |
+| [config](configs/adamixer/adamixer_r101_300_query_crop_mstrain_480-800_3x_coco.py) | AdaMixer (3x schedule, 300 queries)  |  R101    |  48.0  | 48.1   |  48.1 | [ckpt](https://drive.google.com/file/d/1dx1-FZ20VDX7nCHtXh2_5AMrSysKEGK8/view?usp=sharing) | [log](https://drive.google.com/file/d/1MIocHsn9PHxWh5f1uua1OsEX_zbqiyX0/view?usp=sharing)
+| [config](configs/adamixer/adamixer_dx101_300_query_crop_mstrain_480-800_3x_coco.py) | AdaMixer (3x schedule, 300 queries)  |  X101-DCN|  49.5  | 49.3   |  49.7 | [ckpt](https://drive.google.com/file/d/1vbIYuq8hvebP-DkqyFCMFVh5CSBjZ8cA/view?usp=sharing) | [log](https://drive.google.com/file/d/1nztwEaVSvNaM5os9NsecV97jilgHIuoO/view?usp=sharing)
+| [config](configs/adamixer/adamixer_swin_s_300_query_crop_mstrain_480-800_3x_coco.py) | AdaMixer (3x schedule, 300 queries)   |  Swin-S  |  51.3  | 51.3   | on the way |
+
 
 
 ## ✏️ Citation
