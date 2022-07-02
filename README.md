@@ -8,6 +8,8 @@
 [[arxiv]](https://arxiv.org/abs/2203.16507)
 
 ## 📰 News
+[2022.7.3] Reproduced model checkpoints and logs are available.
+
 [2022.4.4] The code is available now.
 
 [2022.3.31] Code will be released in a few days (not too long). Pre-trained models will take some time to grant the permission of Ant Group to be available online. Please stay tuned or *watch this repo* for quick information.
@@ -52,7 +54,7 @@ Checkpoints and logs are available at [google drive](https://drive.google.com/dr
 | [config](configs/adamixer/adamixer_dx101_300_query_crop_mstrain_480-800_3x_coco.py) | AdaMixer (3x schedule, 300 queries)  |  X101-DCN|  49.5  | 49.3   |  49.7 | [ckpt](https://drive.google.com/file/d/1vbIYuq8hvebP-DkqyFCMFVh5CSBjZ8cA/view?usp=sharing) | [log](https://drive.google.com/file/d/1nztwEaVSvNaM5os9NsecV97jilgHIuoO/view?usp=sharing)
 | [config](configs/adamixer/adamixer_swin_s_300_query_crop_mstrain_480-800_3x_coco.py) | AdaMixer (3x schedule, 300 queries)   |  Swin-S  |  51.3  | 51.3   | on the way |
 
-
+Special thanks to [Zhan Tong](https://github.com/yztongzhan) for these reproduced models.
 
 ## ✏️ Citation
 If you find AdaMixer useful in your research, please cite us using the following entry:
