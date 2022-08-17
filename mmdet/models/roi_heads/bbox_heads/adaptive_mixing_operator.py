@@ -123,7 +123,7 @@ class AdaptiveMixing(nn.Module):
             )
 
             M = M.reshape(
-                B*N*G, self.eff_in_dim, self.eff_in_dim)
+                B*N*G, self.eff_in_dim, self.eff_out_dim)
             S = S.reshape(
                 B*N*G, self.out_points, self.in_points)
 
@@ -138,12 +138,11 @@ class AdaptiveMixing(nn.Module):
             out = self.act(out)
         else:
             M = M.reshape(
-                B*N, G, self.eff_in_dim, self.eff_in_dim)
+                B*N, G, self.eff_in_dim, self.eff_out_dim)
             S = S.reshape(
                 B*N, G, self.out_points, self.in_points)
 
             '''adaptive channel mixing'''
-
             out = torch.matmul(out, M)
             out = F.layer_norm(out, [out.size(-2), out.size(-1)])
             out = self.act(out)
